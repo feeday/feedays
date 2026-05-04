@@ -1,12 +1,12 @@
 # Edit
 
-### Gmeek.py  
+### /Gmeek.py  
 
 - /post 去掉二级目录
 ```
 1、HTML 都直接生成在 docs/ 根目录下了，写新文章时（不管是 Issue 的标题，还是改短链接），千万不要取名为 index、tag、about、rss
 ```
-### base.html
+### /templates/base.html
 - footer 增加尾部信息
 ```
 1、增加底部加载时长和广告展示
