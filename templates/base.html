@@ -26,8 +26,22 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <body>
     <div id="header">{% block header %}{% endblock %}</div>
     <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">{% include 'footer.html' %}</div>
+    <div id="footer">
+        {% include 'footer.html' %}
+        <span id="loadTime"></span>
+        
+        <div style="text-align:center; margin-top:15px;">
+            <a href="https://tool.lu/netcard/" target="_blank">
+                <img src="https://tool.lu/netcard/" style="max-width:100%; height:auto; vertical-align:middle; border-radius:8px;">
+            </a>
+            <br>
+            <div style="margin-top:10px;">
+                <img src="https://tool.lu/netcard/" style="vertical-align:middle;">
+            </div>
+        </div>
+    </div>
 </body>
+    
 <script>
 var IconList={{ IconList }};
 var utterancesLoad=0;
@@ -62,4 +76,14 @@ console.log("\n %c Gmeek {{ blogBase['GMEEK_VERSION'] }} https://github.com/Meek
 </script>
 {% block script %}{% endblock %}
 </html>
-
+<script>
+window.addEventListener('load', function() {
+    let loadTimeSpan = document.getElementById('loadTime');
+    if (loadTimeSpan) {
+        // 计算页面加载时间
+        let timing = performance.getEntriesByType('navigation')[0];
+        let loadTime = Math.round(timing.duration);
+        loadTimeSpan.innerHTML = ' • 页面加载时间: ' + loadTime + 'ms';
+    }
+});
+</script>
