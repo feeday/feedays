@@ -41,7 +41,7 @@ class GMEEK():
         
         self.root_dir='docs/'
         self.static_dir='static/'
-        self.post_folder='post/'
+        self.post_folder='' # 👉 修改点 1：将 'post/' 改为空字符串
         self.backup_dir='backup/'
         self.post_dir=self.root_dir+self.post_folder
 
@@ -72,7 +72,7 @@ class GMEEK():
 
         os.mkdir(self.backup_dir)
         os.mkdir(self.root_dir)
-        os.mkdir(self.post_dir)
+        # os.mkdir(self.post_dir)  # 👉 修改点 2：将这行注释掉，防止重复创建 docs 文件夹报错
 
         if os.path.exists(self.static_dir):
             for item in os.listdir(self.static_dir):
